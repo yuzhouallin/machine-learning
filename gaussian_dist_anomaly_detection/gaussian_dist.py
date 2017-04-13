@@ -12,8 +12,8 @@ def read_data_set(csv_file):
             x = x + 1
             y = len(row)
             matrix.append(row)
-    print matrix
-    print x , y
+    #print matrix
+    #print x , y
     return matrix, x, y
 
 def calc_mu_sigma(matrix, x, y):
@@ -29,8 +29,8 @@ def calc_mu_sigma(matrix, x, y):
             sigma[j] = sigma[j] + math.pow(float(matrix[i][j]) - mu[j], 2)
 
         sigma[j] = float(sigma[j]) / float(x)
-    print mu
-    print sigma
+    #print mu
+    #print sigma
     return mu, sigma, x, y
 
 def calc_gaussian_p(matrix, mu, sigma, x, y):
@@ -44,13 +44,14 @@ def calc_gaussian_p(matrix, mu, sigma, x, y):
                 p[i] = p[i] * num_01 * math.exp(num_02)
         except Exception as pex:
             p[i] = 0
-    print p
+    #print p
     return p
 
 
 matrix, x, y = read_data_set('normal.csv')
 mu, sigma, x, y = calc_mu_sigma(matrix, x, y)
 p = calc_gaussian_p(matrix, mu, sigma, x, y)
-
+print p
 matrix2, xx, yy = read_data_set('abnormal.csv')
 p2 = calc_gaussian_p(matrix2, mu, sigma, xx, yy)
+print p2
