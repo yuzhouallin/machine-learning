@@ -94,7 +94,7 @@ def NN(dataset, resultset):
 
     # Create training cases for an XOR function
     #model.load_weights("telefraud.hdf")
-    model.fit(dataset, resultset, epochs=400)
+    model.fit(dataset, resultset, epochs=500)
     print model.get_weights()
     #model.save("telefraud.hdf")
     predict_result =  model.predict(dataset, batch_size=320, verbose=1)
